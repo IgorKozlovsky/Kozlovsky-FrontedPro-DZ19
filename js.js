@@ -7,9 +7,14 @@ function powRec(num, degree) {
   if (degree === 0) {
     return 1;
   }
-  if (degree === 1) {
-    return num;
+  if (degree < 0) {
+    return powRec(num, degree + 1) / num;
+  } else {
+    return num * powRec(num, degree - 1);
   }
-  return num * powRec(num, degree - 1);
 }
 console.log(powRec(2, 4));
+console.log(powRec(2, -4));
+console.log(powRec(2, 0));
+console.log(powRec(2, 1));
+console.log(powRec(2, -1));
